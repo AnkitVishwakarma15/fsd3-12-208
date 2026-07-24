@@ -1,10 +1,12 @@
+
+import { log } from "node:console";
 import { EventEmitter} from "node:events";
 
 const logIn=(name) => {
 console.log(`${name} logged in`);
 };
 
-logIn("ankit");
+
 
 const start=()=>{
     console.log("system starts");
@@ -17,13 +19,28 @@ const working= (name) =>{
 const checkout = (name) => {
     console.log(`${name} logged out`);
 };
-start();
-working("ankit");
-checkout("ankit");
+
+
+// logIn("ankit");
+// start();
+// working("ankit");
+// checkout("ankit");
 
 
 const task = new EventEmitter();
-task.on("greeting", logIn);
+task.once("greet", start);
+task.on("greet", logIn);
+task.on("greet", working);
+task.on("greet", checkout );
+
+task.once("exit", () =>{                     // without name function
+    console.log("system shutting down");
+});
 
 
+task.emit("greet","vicky");
 task.emit("greet","ankit vishwakarma");
+
+task.off("greet", working);  // remove the working event 
+task.emit("greet", "shyam");
+task.emit("exit");
