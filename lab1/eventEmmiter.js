@@ -1,3 +1,4 @@
+import { EventEmitter} from "node:events";
 
 const logIn=(name) => {
 console.log(`${name} logged in`);
@@ -19,3 +20,10 @@ const checkout = (name) => {
 start();
 working("ankit");
 checkout("ankit");
+
+
+const task = new EventEmitter();
+task.on("greeting", logIn);
+
+
+task.emit("greet","ankit vishwakarma");
