@@ -17,8 +17,14 @@ const server = http.createServer((req, res) => {
       qty: 2,
       discount: 15,
     },
+    {
+      name: "laptop",
+      price: 85000,
+      qty: 2,
+      discount: 15,
+    },
   ];
   res.end(JSON.stringify(product));
 });
 
-server.listen(3000, () => console.log("server is running at 30000..."));
+server.listen(3000, () => console.log("server is running at 3000..."));
