@@ -11,10 +11,37 @@ let users = [
 
 let nextId = 3;
 
-export const getUsers = () => users;
+export const getAllUsers = () => {
+  return users;
+}
+
+export const getUserById = (pid) => {
+  users.find((user) =>user.id === pid)
+    return found;
+}
+
 
 export const addUser = (user) => {
   user.id = nextId++;
   users.push(user);
   return user;
 };
+
+
+export const updateUser =(pid, updateData) =>{
+  const index = users.findIndex((user)=> user.id=== pid);
+  if(index == -1){
+    return false;
+  }
+  updateData.id = pid;
+  users[index] = updateData;
+  return updateData;
+}
+
+export const deleteUer = (pid) =>{
+  const index = users.findIndex((user) => user.id === pid);
+  if(index == -1){
+    return false;
+  }
+  users.splice(index,1);
+}
