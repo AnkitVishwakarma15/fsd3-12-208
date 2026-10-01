@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresh Apples</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fffaf5;
+      color: #252525;
+    }
+
+    header {
+      background: #d62828;
+      color: white;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 15px;
+    }
+
+    .hero {
+      min-height: 560px;
+      padding: 70px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(135deg, #fff4e6, #ffe0d0);
+    }
+
+    .hero-text {
+      max-width: 550px;
+    }
+
+    .hero h1 {
+      font-size: clamp(50px, 8vw, 90px);
+      line-height: 0.95;
+      color: #b91c1c;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 28px;
+      border-radius: 30px;
+      background: #d62828;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #a4161a;
+      transform: translateY(-2px);
+    }
+
+    .apple {
+      width: 300px;
+      height: 280px;
+      background: #e63946;
+      border-radius: 48% 52% 48% 52% / 48% 48% 52% 52%;
+      position: relative;
+      box-shadow: 0 25px 50px rgba(150, 30, 30, 0.25);
+      transform: rotate(-5deg);
+    }
+
+    .apple::before {
+      content: "";
+      position: absolute;
+      width: 28px;
+      height: 75px;
+      background: #65351f;
+      left: 145px;
+      top: -45px;
+      border-radius: 50%;
+      transform: rotate(15deg);
+    }
+
+    .apple::after {
+      content: "";
+      position: absolute;
+      width: 85px;
+      height: 45px;
+      background: #3a9d23;
+      left: 155px;
+      top: -25px;
+      border-radius: 100% 0 100% 0;
+      transform: rotate(-20deg);
+    }
+
+    .section {
+      padding: 80px 8%;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .section > p {
+      color: #777;
+      margin-bottom: 45px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .fruit {
+      font-size: 70px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #777;
+      line-height: 1.6;
+    }
+
+    .benefits {
+      background: #f1f8ed;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .benefit {
+      padding: 25px;
+    }
+
+    .benefit span {
+      font-size: 45px;
+    }
+
+    .benefit h3 {
+      margin: 15px 0 8px;
+    }
+
+    footer {
+      background: #222;
+      color: #bbb;
+      text-align: center;
+      padding: 30px;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        padding: 18px 5%;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 80px;
+        padding: 60px 5%;
+      }
+
+      .apple {
+        width: 220px;
+        height: 210px;
+      }
+
+      .apple::before {
+        left: 105px;
+      }
+
+      .apple::after {
+        left: 115px;
+      }
+
+      .cards,
+      .benefit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 60px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">🍎 Fresh Apple</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#varieties">Varieties</a>
+      <a href="#benefits">Benefits</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <h1>Fresh.<br>Sweet.<br>Apple.</h1>
+
+        <p>
+          Crisp, juicy and naturally delicious.
+          Discover the simple goodness of fresh apples,
+          straight from the orchard.
+        </p>
+
+        <a href="#varieties" class="button">Explore Apples</a>
+      </div>
+
+      <div class="apple"></div>
+    </section>
+
+    <section class="section" id="varieties">
+      <h2>Popular Varieties</h2>
+      <p>Every apple has its own unique taste.</p>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="fruit">🍎</div>
+          <h3>Red Apple</h3>
+          <p>
+            Sweet, juicy and crisp. A classic favorite
+            that's perfect for snacking.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="fruit">🍏</div>
+          <h3>Green Apple</h3>
+          <p>
+            Refreshingly tart with a satisfying crunch.
+            Great for salads and juices.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="fruit">🍎</div>
+          <h3>Royal Apple</h3>
+          <p>
+            Fragrant and naturally sweet with a smooth,
+            delicious texture.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section benefits" id="benefits">
+      <h2>Why Eat Apples?</h2>
+      <p>A tasty addition to a balanced diet.</p>
+
+      <div class="benefit-grid">
+
+        <div class="benefit">
+          <span>💪</span>
+          <h3>Nutritious</h3>
+          <p>Apples provide fiber and a variety of nutrients.</p>
+        </div>
+
+        <div class="benefit">
+          <span>💧</span>
+          <h3>Refreshing</h3>
+          <p>Crunchy and naturally juicy for a refreshing snack.</p>
+        </div>
+
+        <div class="benefit">
+          <span>🌱</span>
+          <h3>Natural</h3>
+          <p>A simple fruit that can be enjoyed fresh and whole.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>🍎 Fresh Apple — Nature's delicious snack.</p>
+  </footer>
+
+</body>
+</html>
